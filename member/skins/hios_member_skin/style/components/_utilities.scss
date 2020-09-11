@@ -1,0 +1,178 @@
+
+/* ========================================================================
+ Component: Utilities
+ ========================================================================== */
+
+.hi.border-circle {
+  border-radius: 50%;
+}
+
+.hi.border-rounded {
+  border-radius: $border-rounded-border-radius;
+}
+
+.hi.border-max-rounded {
+  border-radius: 500px;
+}
+
+
+/* width
+ ========================================================================== */
+.hi.width-xsmall {
+  width: 150px;
+}
+
+.hi.width-small {
+  width: 300px;
+}
+
+.hi.width-row-medium {
+  width: 450px;
+}
+
+.hi.width-medium {
+  width: $breakpoint-small;
+}
+
+.hi.width-large {
+  width: $breakpoint-medium;
+}
+
+/* Max width
+ ========================================================================== */
+.hi.max-width-xsmall {
+  max-width: 150px;
+}
+
+.hi.max-width-small {
+  max-width: 300px;
+}
+
+.hi.max-width-row-medium {
+  max-width: 450px;
+}
+
+.hi.max-width-medium {
+  max-width: $breakpoint-small;
+}
+
+.hi.max-width-large {
+  max-width: $breakpoint-medium;
+}
+
+
+/* Height
+ ========================================================================== */
+
+.hi.height-small {
+  height: 70px;
+}
+
+.hi.height-medium {
+  height: 150px;
+}
+
+.hi.height-large {
+  height: 300px;
+}
+
+.hi.height-expand {
+  height: 100%;
+}
+
+
+/* Border Line
+ ========================================================================== */
+
+.hi.border-line {
+  border-width: 1px;
+  border-style: solid;
+  border-color: $color-base-lighter;
+}
+
+.hi.border-line-right {
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: $color-base-lighter;
+}
+
+.hi.border-line-top {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: $color-base-lighter;
+}
+
+.hi.border-line-bottom {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: $color-base-lighter;
+}
+
+
+/* Overflow
+ ========================================================================== */
+
+.hi.overflow-auto {
+  overflow: auto;
+}
+
+.hi.overflow-scroll {
+  overflow: scroll;
+}
+
+.hi.overflow-hidden {
+  overflow: hidden;
+}
+
+.hi.overflow-hidden\@m {
+  @media (max-width: $breakpoint-small-max) {
+    overflow: hidden;
+  }
+}
+
+.hi.overflow-hidden\@s {
+  @media (max-width: $breakpoint-xsmall-max) {
+    overflow: hidden;
+  }
+}
+
+/* Position
+ ========================================================================== */
+.hi.position-relative {
+  position: relative;
+}
+
+
+/* Float
+ ========================================================================== */
+.hi.float-left {
+  float: left;
+}
+
+.hi.float-right {
+  float: right;
+}
+
+
+/* Width Expand
+ ========================================================================== */
+.hi.width-expand {
+  width: 100%;
+}
+
+
+/* Iline
+ ========================================================================== */
+.hi.inline {
+  display: inline;
+}
+
+.hi.inline-block {
+  display: inline-block;
+}
+
+/* White space
+ ========================================================================== */
+.hi.white-space-nowrap {
+  white-space: nowrap;
+}

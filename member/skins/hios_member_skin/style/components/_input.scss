@@ -1,0 +1,214 @@
+
+/* ========================================================================
+ Component: Input
+ ========================================================================== */
+
+.hi .control-group {
+  margin-bottom: $padding-small;
+}
+
+.hi .controls {
+  display: block;
+  padding-top: $padding-small;
+  & > label {
+    padding-right: $padding-small;
+  }
+}
+
+.hi .control-label {
+  display: block;
+  color: $color-base;
+  font-size: $global-font-size-small;
+  padding-top: $padding-small;
+  margin-bottom: $margin-xxsmall;
+}
+
+.hi input,
+.hi select,
+.hi.input {
+  display: inline-block;
+  font-size: $global-font-size-small;
+  font-weight: 500;
+  line-height: 1.5;
+
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $color-base-lighter;
+
+  -webkit-transition: all 0.2s;
+     -moz-transition: all 0.2s;
+       -o-transition: all 0.2s;
+          transition: all 0.2s;
+  &:disabled {
+    cursor: no-drop;
+    opacity: 0.7;
+    background-color: $color-base-lightest;
+  }
+}
+
+.hi input[type="text"],
+.hi input[type="email"],
+.hi input[type="password"],
+.hi input[type="file"],
+.hi input[type="url"],
+.hi select,
+.hi.input-expand {
+  width: 100%;
+}
+
+.hi input[type="text"],
+.hi input[type="email"],
+.hi input[type="password"],
+.hi input[type="file"],
+.hi input[type="url"],
+.hi input[type="tel"],
+.hi select,
+.hi.input-default {
+  border-color: $color-base-lighter;
+  &:hover {
+    border-color: $color-base-light;
+  }
+  &:focus {
+    border-color: $color-primary;
+    outline: none;
+  }
+}
+
+.hi input[type="tel"] {
+  width: 70px !important;
+}
+
+.hi.input-checkbox {
+  display: none;
+  visibility: hidden;
+}
+
+.hi.input-checkbox + label {
+  display: block;
+  cursor: pointer;
+  font-size: $global-font-size-small;
+  color: $color-base;
+
+  -webkit-transition: all 0.2s;
+     -moz-transition: all 0.2s;
+       -o-transition: all 0.2s;
+          transition: all 0.2s;
+  &:hover {
+    color: $color-base-dark;
+    &:before {
+      border-color: $color-base-light;
+    }
+  }
+  &:active {
+    &:before {
+      border-color: $color-primary;
+    }
+  }
+}
+
+.hi.input-checkbox + label:before {
+  display: inline-block;
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  border-radius: 4px;
+  border: none;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $color-base-lighter;
+
+  vertical-align: middle;
+
+  background-color: $color-content;
+}
+
+.hi.input-checkbox:checked + label:before {
+  border-color: $color-primary;
+  background-color: $color-primary;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjIwcHgiIGhlaWdodD0iMTVweCIgdmlld0JveD0iMCAwIDIwIDE1Ij4NCjxwb2x5Z29uIGZpbGw9IiNGRkZGRkYiIHBvaW50cz0iNy4xNDMsMTQuOTM4IDAsNy43OTYgMi4wMjEsNS43NzYgNy4xNDMsMTAuODk4IDE3Ljk3OSwwLjA2MiAyMCwyLjA4MiAiLz4NCjwvc3ZnPg0K');
+  background-size:10px auto;
+  -webkit-background-size:10px auto;
+  -moz-background-size:10px auto;
+  -o-background-size:10px auto;
+}
+
+/* Placeholder
+========================================================================== */
+
+.hi.input:-ms-input-placeholder {
+  color: $color-base !important;
+}
+.hi.input::-moz-placeholder {
+  color: $color-base;
+}
+.hi.input::-webkit-input-placeholder {
+  color: $color-base;
+}
+
+/* Textarea
+========================================================================== */
+.hi textarea,
+.hi.textarea {
+  width: 100%;
+  padding: $padding-xsmall;
+
+  font-size: $global-font-size-small;
+  font-weight: 500;
+  line-height: 1.5;
+
+  border: 1px solid $color-base-lighter !important;
+  border-radius: $border-rounded-border-radius;
+  &:hover {
+    border-color: $color-base-light !important;
+  }
+  &:focus {
+    outline: none;
+    border-color: $color-primary !important;
+  }
+}
+
+
+.hi input[type="radio"] {
+	-webkit-appearance: none;
+
+	display: inline-block;
+  height: 16px;
+	width: 16px;
+
+	cursor: pointer;
+	overflow: hidden;
+
+	margin: -4px 0 0 0;
+	padding: 0 !important;
+  vertical-align: middle;
+
+  background-color: transparent;
+  background-repeat: no-repeat;
+	background-position: 50% 50%;
+
+	border-radius: 50% !important;
+	border: 1px solid $color-base-light;
+
+  -webkit-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out;
+  -webkit-transition-property: background-color, border;
+	transition-property: background-color, border;
+	&:focus {
+		outline: none;
+		border-color: $color-primary;
+	}
+	&:checked {
+		background-color: #fff;
+		border-color: $color-primary;
+		border-width: 5px;
+		&:focus {
+			border-color: $color-primary-dark;
+		}
+	}
+}

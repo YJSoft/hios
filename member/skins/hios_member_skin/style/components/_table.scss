@@ -1,0 +1,45 @@
+
+/* ========================================================================
+ Component: Table
+ ========================================================================== */
+.hi.table {
+  width: 100%;
+  font-family: $global-font-family;
+  font-size: $global-font-size-small;
+  line-height: $global-line-height;
+  border-collapse: collapse;
+  background-color: $color-content;
+  caption {
+    color: $color-base;
+    font-size: $global-font-size-small;
+    text-align: left;
+    margin-bottom: $padding-xsmall;
+  }
+  tr {
+    th {
+      white-space: nowrap;
+    }
+    th, td {
+      color: $color-base-darker;
+      font-weight: normal;
+      text-align: left;
+      padding: $padding-small;
+      &, & * {
+        font-size: $global-font-size-small;
+      }
+    }
+  }
+  
+}
+
+.hi.table-divider {
+  tr {
+    border: 1px solid $color-base-lighter;
+    th, td {
+      
+    }
+    & > th {
+      background-color: $color-base-lightest;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<load target="js/member.js" />
+
+<block cond="$member_config->colorset == 'blue'">
+  <load target="style/hios.css" />
+</block>
+
+<block cond="$member_config->colorset == 'purple'">
+  <load target="style/hios-purple.css" />
+</block>
+
+<block cond="$member_config->colorset == 'green'">
+  <load target="style/hios-green.css" />
+</block>
+
+<block cond="$member_config->colorset == 'red'">
+  <load target="style/hios-red.css" />
+</block>
+
+<block cond="$member_config->colorset == 'yellow'">
+  <load target="style/hios-yellow.css" />
+</block>
+
+<section class="hi member">
+  <div class="hi background-color-content" cond="$is_logged && $logged_info->menu_list && (!$member_srl || $member_srl == $logged_info->member_srl)">
+    <div class="hi tab-wrap overflow-hidden@m">
+      <ul class="hi tab">
+        <li loop="$logged_info->menu_list=>$key,$val" id="tab-active"|cond="$key==$act" class="active"|cond="$key==$act">
+          <a href="{getUrl('', 'act',$key, 'mid', $mid, 'vid', $vid)}">{Context::getLang($val)}</a>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      jQuery(document).ready(function($) {
+        if($('#tab-active').length) {
+          var navbarNavOffsetLeft = $("#tab-active").offset().left - 15;
+      
+          $(function() {
+            $(".hi.tab").animate({
+              scrollLeft: navbarNavOffsetLeft
+            }, 0);
+          });
+        }
+
+      });
+    </script>
+  </div>
+  
+	<div class="hi container">

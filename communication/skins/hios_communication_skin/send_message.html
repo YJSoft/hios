@@ -1,0 +1,72 @@
+{Context::addMetaTag("viewport", "width=device-width, user-scalable=yes")}
+
+<load target="js/communication.js" />
+
+<block cond="$communication_config->colorset == 'blue'">
+  <load target="../../../member/skins/hios_member_skin/style/hios.css" />
+</block>
+
+<block cond="$communication_config->colorset == 'purple'">
+  <load target="../../../member/skins/hios_member_skin/style/hios-purple.css" />
+</block>
+
+<block cond="$communication_config->colorset == 'green'">
+  <load target="../../../member/skins/hios_member_skin/style/hios-green.css" />
+</block>
+
+<block cond="$communication_config->colorset == 'red'">
+  <load target="../../../member/skins/hios_member_skin/style/hios-red.css" />
+</block>
+
+<block cond="$communication_config->colorset == 'yellow'">
+  <load target="../../../member/skins/hios_member_skin/style/hios-yellow.css" />
+</block>
+
+<div class="hi section container">
+  <h3>{$lang->cmd_send_message}</h3>
+  
+	<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/communication/skins/hios_communication_skin/send_message/1'" class="hi notice-info message {$XE_VALIDATOR_MESSAGE_TYPE}">
+		<p>{$XE_VALIDATOR_MESSAGE}</p>
+  </div>
+  
+	<form ruleset="sendMessage" action="./" method="post">
+    <input type="hidden" name="module" value="communication" />
+		<input type="hidden" name="act" value="procCommunicationSendMessage" />
+		<input type="hidden" name="content" value="{htmlspecialchars($source_message->content, ENT_COMPAT | ENT_HTML401, 'UTF-8', false)}" />
+		<input type="hidden" name="receiver_srl" value="{$receiver_info->member_srl}" />
+		<input type="hidden" name="xe_validator_id" value="modules/communication/skins/hios_communication_skin/send_message/1" />
+		<table class="table table-striped table-hover">
+    
+		<table class="hi table table-divider margin-bottom-small">
+			<tr>
+				<th scope="row"><label for="textfield1">{$lang->receiver}</label></th>
+				<td><a href="#popup_menu_area" class="member_{$receiver_info->member_srl}">{$receiver_info->nick_name}</a></td>
+			</tr>
+			<tr>
+				<th scope="row">{$lang->title}</th>
+				<td><input type="text" name="title" id="message_title" class="hi input input-default" value="{$source_message->title}" style="width:90%; height: 38px"/></td>
+			</tr>
+			<tr>
+				<th scope="row">{$lang->cmd_option}</th>
+				<td>
+          <input id="send_mail" class="hi input-checkbox" type="checkbox" value="Y" name="send_mail" />
+          <label for="send_mail">{$lang->cmd_send_mail}</label>
+        </td>
+			</tr>
+    </table>
+    
+    {$editor}
+    
+		<div class="hi text-right margin-top-small">
+			<input  type="submit" value="{$lang->cmd_send_message}" class="hi button button-primary" />
+		</div>
+	</form>
+</div>
+
+<script>
+  jQuery("link[rel=stylesheet][href*='admin.css']").remove();
+  jQuery("link[rel=stylesheet][href*='admin.min.css']").remove();
+  jQuery("link[rel=stylesheet][href*='admin.bootstrap.css']").remove();
+  jQuery("link[rel=stylesheet][href*='admin.bootstrap.min.css']").remove();
+  jQuery("link[rel=stylesheet][href*='rhymix.scss.min.css']").remove();
+</script>

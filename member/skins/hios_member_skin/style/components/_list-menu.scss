@@ -1,0 +1,64 @@
+/* ========================================================================
+ Component: List Menu
+ ========================================================================== */
+
+.hi.list-menu {
+  padding: 0;
+  margin: 0 0 40px 0;
+  li {
+    list-style-type: none;
+    &.active > a {
+      border-left-width: 2px;
+      border-left-color: $color-primary;
+      color: $color-primary;
+      font-weight: 600;
+      &:hover {
+        color: $color-primary-dark;
+      }
+    }
+    a {
+      display: inline-block;
+      padding: 6px 10px;
+      margin-bottom: 5px;
+
+      border-left-width: 1px;
+      border-left-style: solid;
+      border-left-color: transparent;
+
+      color: $color-base;
+      font-size: $global-font-size-small;
+      text-decoration: none;
+
+      -webkit-transition: all 0.2s;
+         -moz-transition: all 0.2s;
+           -o-transition: all 0.2s;
+              transition: all 0.2s;
+      &:hover {
+        border-left-color: $color-primary;
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+.hi.list-menu > li > ul {
+  padding: 0;
+  margin-bottom: 10px;
+  & > li {
+    & > a {
+      padding-left: 30px;
+
+      color: $color-base;
+      font-size: $global-font-size-small;
+
+      -webkit-transition: all 0.2s;
+         -moz-transition: all 0.2s;
+           -o-transition: all 0.2s;
+              transition: all 0.2s;
+    }
+    &.active > a {
+      border: none;
+      color: $color-base-darker;
+    }
+  }
+}

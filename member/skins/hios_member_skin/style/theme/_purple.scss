@@ -1,0 +1,14 @@
+
+// ========================================================================
+// Theme variables
+// ========================================================================
+
+// 
+// Color
+// 
+
+$color-primary: #747cfd !default;
+$color-primary-dark: mix(darken($color-primary, 5%), black, 90%) !default;
+$color-primary-darker: mix(darken($color-primary, 5%), black, 80%) !default;
+$color-primary-light: mix($color-primary, white, 80%) !default;
+$color-primary-lighter: mix($color-primary, white, 20%) !default;

@@ -1,0 +1,288 @@
+
+/* ========================================================================
+ Component: Button
+ ========================================================================== */
+
+.hi button[type="button"],
+.hi.button {
+  display: inline-block;
+  cursor: pointer;
+  font-size: $global-font-size-small;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  
+  padding: 12px 18px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $color-base-lighter;
+
+  text-decoration: none !important;
+
+  -webkit-transition: all 0.2s;
+     -moz-transition: all 0.2s;
+       -o-transition: all 0.2s;
+          transition: all 0.2s;
+  &:focus {
+    outline: none;
+  }
+}
+
+.hi.button-expand {
+  width: 100%;
+}
+
+.hi button[type="button"] {
+  margin-bottom: $padding-xsmall;
+}
+
+.hi.button-rounded {
+  border-radius: 100px !important;
+}
+
+.hi.button-shadow {
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.1);
+  &:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  &:active {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+
+/* Button size
+========================================================================== */
+
+.hi.button-small {
+  padding: 8px 20px;
+  border-radius: 3px;
+}
+
+
+/* Button color style
+ ========================================================================== */
+
+.hi button[type="button"],
+.hi.button-default {
+  color: $color-base-dark;
+  background-color: $color-content;
+  border-color: $color-base-lighter;
+  &:hover {
+    color: $color-base-dark;
+    border-color: $color-base-light;
+  }
+  &:active {
+    color: $color-base-dark;
+    border-color: $color-base;
+  }
+}
+
+.hi.button-primary {
+  color: $color-content !important;
+  border-color: $color-primary !important;
+  background-color: $color-primary !important;
+  &:hover {
+    color: $color-content !important;
+    border-color: $color-primary-light !important;
+    background-color: $color-primary-light !important;
+  }
+  &:active {
+    color: $color-content !important;
+    border-color: $color-primary-dark !important;
+    background-color: $color-primary-dark !important;
+  }
+}
+
+.hi.button-success {
+  color: $color-content;
+  border-color: $color-success;
+  background-color: $color-success;
+  &:hover {
+    color: $color-content;
+    border-color: $color-success-light;
+    background-color: $color-success-light;
+  }
+  &:active {
+    color: $color-content;
+    border-color: $color-success-dark;
+    background-color: $color-success-dark;
+  }
+}
+
+.hi.button-danger {
+  color: $color-content;
+  border-color: $color-danger;
+  background-color: $color-danger;
+  &:hover {
+    color: $color-content;
+    border-color: $color-danger-light;
+    background-color: $color-danger-light;
+  }
+  &:active {
+    color: $color-content;
+    border-color: $color-danger-dark;
+    background-color: $color-danger-dark;
+  }
+}
+
+
+/* Button color style
+ ========================================================================== */
+
+.hi.button-border-line {
+  background-color: transparent;
+  &.hi.button-primary {
+    color: $color-primary;
+    &:hover {
+      color: $color-content;
+      border-color: $color-primary;
+      background-color: $color-primary;
+    }
+    &:active {
+      color: $color-content;
+      border-color: $color-primary-dark;
+      background-color: $color-primary-dark;
+    }
+  }
+
+  &.hi.button-success {
+    color: $color-primary;
+    &:hover {
+      color: $color-content;
+    }
+    &:active {
+      color: $color-content;
+    }
+  }
+
+  &.hi.button-danger {
+    color: $color-primary;
+    &:hover {
+      color: $color-content;
+    }
+    &:active {
+      color: $color-content;
+    }
+  }
+}
+
+
+/* Social Button
+ ========================================================================== */
+
+$color-social-kakao: #fedc00;
+$color-social-naver: #64ca52;
+$color-social-facebook: #4267b2;
+$color-social-google: #e24343;
+$color-social-twitter: #1da1f2;
+
+.hi.button-kakao {
+  color: $color-content;
+  border-color: $color-social-kakao;
+  background-color: $color-social-kakao;
+  &:hover {
+    border-color: mix($color-social-kakao, $color-content, 80%);
+    background-color: mix($color-social-kakao, $color-content, 80%);
+  }
+  &:active {
+    border-color: mix($color-social-kakao, black, 80%);;
+    background-color: mix($color-social-kakao, black, 80%);;
+  }
+}
+
+.hi.button-naver {
+  color: $color-content;
+  border-color: $color-social-naver;
+  background-color: $color-social-naver;
+  &:hover {
+    border-color: mix($color-social-naver, $color-content, 80%);
+    background-color: mix($color-social-naver, $color-content, 80%);
+  }
+  &:active {
+    border-color: mix($color-social-naver, black, 80%);;
+    background-color: mix($color-social-naver, black, 80%);;
+  }
+}
+
+.hi.button-facebook {
+  color: $color-content;
+  border-color: $color-social-facebook;
+  background-color: $color-social-facebook;
+  &:hover {
+    border-color: mix($color-social-facebook, $color-content, 80%);
+    background-color: mix($color-social-facebook, $color-content, 80%);
+  }
+  &:active {
+    border-color: mix($color-social-facebook, black, 80%);;
+    background-color: mix($color-social-facebook, black, 80%);;
+  }
+}
+
+.hi.button-google {
+  color: $color-content;
+  border-color: $color-social-google;
+  background-color: $color-social-google;
+  &:hover {
+    border-color: mix($color-social-google, $color-content, 80%);
+    background-color: mix($color-social-google, $color-content, 80%);
+  }
+  &:active {
+    border-color: mix($color-social-google, black, 80%);;
+    background-color: mix($color-social-google, black, 80%);;
+  }
+}
+
+.hi.button-twitter {
+  color: $color-content;
+  border-color: $color-social-twitter;
+  background-color: $color-social-twitter;
+  &:hover {
+    border-color: mix($color-social-twitter, $color-content, 80%);
+    background-color: mix($color-social-twitter, $color-content, 80%);
+  }
+  &:active {
+    border-color: mix($color-social-twitter, black, 80%);;
+    background-color: mix($color-social-twitter, black, 80%);;
+  }
+}
+
+.hi.button-scroll-top {
+  visibility: hidden;
+  position: fixed;
+  opacity: 0;
+  right: 40px;
+  bottom: 40px;
+  padding: 14px 18px;
+  line-height: 1;
+  border-radius: 2em;
+  z-index: 1;
+
+  font-size: $global-font-size-medium;
+  color: $color-content;
+  background-color: $color-primary;
+  box-shadow: 0 3px 4px rgba($color-base-darkest, 0.1);
+
+  -webkit-transition: all 0.2s;
+     -moz-transition: all 0.2s;
+       -o-transition: all 0.2s;
+          transition: all 0.2s;
+  &.on {
+    visibility: visible;
+    opacity: 1;
+  }
+  &:hover {
+    background-color: $color-primary-light;
+    box-shadow: 0 3px 10px rgba($color-base-darkest, 0.2);
+  }
+  &:active {
+    background-color: $color-primary-dark;
+    box-shadow: 0 1px 4px rgba($color-base-darkest, 0.1);
+  }
+
+  @media (max-width: $breakpoint-small-max) {
+    right: 20px;
+    bottom: 20px;
+  }
+}

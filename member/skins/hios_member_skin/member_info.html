@@ -1,0 +1,65 @@
+<include target="./header_profile.html" />
+
+<include target="./common_header.html" />
+
+<div class="hi section">
+  <div class="<!--@if($is_logged && $logged_info->menu_list && (!$member_srl || $member_srl == $logged_info->member_srl))-->row<!--@end-->">
+    <div class="<!--@if($is_logged && $logged_info->menu_list && (!$member_srl || $member_srl == $logged_info->member_srl))-->col-sm-9<!--@end-->">
+      <div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/member/skins/simple_world/1'" class="hi notice-info {$XE_VALIDATOR_MESSAGE_TYPE}">
+        <p>{$XE_VALIDATOR_MESSAGE}</p>
+      </div>
+      
+      <ul class="hi list">
+        <block loop="$displayDatas => $item">
+          <li>
+            <h6 class="hi list-label">{$item->title}<span class="hi label label-danger" cond="$item->required || $item->mustRequired">필수</span></h6>
+
+            <div class="hi list-content" cond="$item->value">{$item->value}</div>
+            <div class="hi list-content" cond="!$item->value">내용 없음</div>
+          </li>
+        </block>
+  
+        <li>
+          <h6 class="hi list-label">{$lang->member_group}</h6>
+          <div class="hi list-content">{implode(', ', $memberInfo['group_list'])}</div>
+        </li>
+  
+        <li>
+          <h6 class="hi list-label">{$lang->signup_date}</h6>
+          <div class="hi list-content">{zdate($memberInfo[regdate],"Y-m-d")}</div>
+        </li>
+
+        <li cond="$memberInfo[member_srl] == $logged_info->member_srl || $logged_info->is_admin == 'Y'">
+          <h6 class="hi list-label">{$lang->last_login}</h6>
+          <div class="hi list-content">{zdate($memberInfo[last_login],"Y-m-d")}</div>
+        </li>
+      </ul>
+
+      <div class="hi flex margin-top-small hidden@s">
+        <div class="hi flex">
+          <a href="{getUrl('act','dispMemberModifyPassword','member_srl','')}" class="hi link-muted">{$lang->cmd_modify_member_password}</a>
+        </div>
+
+        <div class="hi flex flex-right">
+          <a href="{getUrl('act','dispMemberLeave','member_srl','')}" class="hi link-muted">{$lang->cmd_leave}</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-3 visible@s" cond="$memberInfo['member_srl'] == $logged_info->member_srl">
+      <h3>{$lang->member_info}</h3>
+
+      <hr class="hi hr">
+      
+      <ul class="hi list-menu">
+        <li><a href="{getUrl('act','dispMemberModifyInfo','member_srl','')}">{$lang->cmd_modify_member_info}</a></li>
+        <li><a href="{getUrl('act', 'dispMemberModifyEmailAddress')}" cond="$member_config->identifier == 'email_address'">{$lang->cmd_modify_member_email_address}</a></li>
+        <li><a href="{getUrl('act','dispMemberModifyPassword','member_srl','')}">{$lang->cmd_modify_member_password}</a></li>
+        <li><a href="{getUrl('act','dispMemberLeave','member_srl','')}">{$lang->cmd_leave}</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<include target="./common_footer.html" />

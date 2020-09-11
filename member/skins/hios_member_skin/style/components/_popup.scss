@@ -1,0 +1,27 @@
+
+/* ========================================================================
+ Component: Pop up
+ ========================================================================== */
+
+.wfsr {
+  z-index: 2000;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  margin: 0;
+  
+  padding: $padding-small;
+  margin-bottom: $padding-small;
+  color: $color-success-dark;
+  font-size: $global-font-size-small;
+  background-color: $color-success-lightest;
+
+  border: 1px solid $color-success-lighter;
+  border-radius: $border-rounded-border-radius;
+  p {
+    margin: 0;
+    font-size: $global-font-size-small;
+  }
+}

@@ -1,0 +1,63 @@
+<include target="./header_profile.html" />
+
+<include target="./common_header.html" />
+
+<section class="hi section hios-auto-login">
+  <h3>{$member_title = lang('member.cmd_view_active_logins')}</h3>
+  
+  <p class="hi text-small text-muted">{lang('common.total')}: {number_format($total_count)}</p>
+  
+	<table class="hi table table-divider margin-bottom-small">
+    <thead>
+      <tr>
+        <th></th>
+        <th>접속 환경</th>
+        <th>최초 접속</th>
+        <th>삭제</th>
+      </tr>
+    </thead>
+
+		<tbody>
+			<tr loop="$active_logins => $no, $autologin_info">
+        <td>{@ $autologin_info->user_agent = @json_decode($autologin_info->user_agent) ?: new stdClass()}</td>
+        <td>{escape($autologin_info->user_agent->browser)} {escape($autologin_info->user_agent->version)} ({escape($autologin_info->user_agent->os)})</td>
+        <td>{zdate($autologin_info->regdate, 'Y-m-d H:i')} ({$autologin_info->ipaddress})</td>
+        <td>
+          <a class="hi button button-default auto-login-delete" data-autologin-id="{$autologin_info->id}" data-autologin-key="{$autologin_info->autologin_key}" href="#">{$lang->cmd_delete}</a>
+        </td>
+      </tr>
+		</tbody>
+  </table>
+  
+  <div class="hi flex flex-middle">
+    <ul class="hi pagination">
+      <li><a href="{getUrl('page','','module_srl','')}" class="direction">&lsaquo; {lang('common.first_page')}</a></li> 
+      <!--@while($page_no = $page_navigation->getNextPage())-->
+      <li class="active"|cond="$page == $page_no"><a href="{getUrl('page',$page_no,'module_srl','')}">{$page_no}</a></li>
+      <!--@end-->
+      <li><a href="{getUrl('page',$page_navigation->last_page,'module_srl','')}" class="direction">{lang('common.last_page')} &rsaquo;</a></li>
+    </ul>
+  </div>
+
+  <div class="hi flex flex-right margin-top-small">
+    <a class="hi button button-default" href="{getUrl('','module','module','act','dispModuleSelectList','id','target_module','type','single')}" onclick="popopen(this.href,'ModuleSelect');return false;">{lang('module.cmd_find_module')}</a>
+    <a class="hi button button-default" href="{getUrl('selected_module_srl','')}" cond="$selected_module_srl">{lang('common.cmd_cancel')}</a>
+  </div>
+</section>
+
+<script>
+	jQuery(function($) {
+		$('.hios-auto-login a.auto-login-delete').on('click', function(event) {
+      console.log('click', $(this).data('autologin-id'))
+			event.preventDefault()
+			exec_json('member.procMemberDeleteAutologin', {
+        autologin_id: $(this).data('autologin-id'),
+        autologin_key: $(this).data('autologin-key')
+      },
+      function(data) {
+        window.location.reload()
+      })
+		})
+	})
+</script>
+<include target="./common_footer.html" />

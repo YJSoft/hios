@@ -1,0 +1,59 @@
+<include target="./common_header.html" />
+	<section class="hi section section-large max-width-row-medium margin-auto-horizontal">
+    <h3>{$lang->cmd_login}</h3>
+    
+		<div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/member/skins'" class="hi notice-info {$XE_VALIDATOR_MESSAGE_TYPE}">
+			<p>{$XE_VALIDATOR_MESSAGE}</p>
+    </div>
+    
+		<form ruleset="@login" action="{getUrl('', 'act', 'procMemberLogin')}" method="post" id="fo_member_login">
+			<input type="hidden" name="success_return_url" value="{$referer_url}" />
+			<input type="hidden" name="act" value="procMemberLogin" />
+      <input type="hidden" name="xe_validator_id" value="modules/member/skins" />
+      
+			<fieldset>
+				<div class="control-group">
+					<input class="hi input input-default input-expand" type="text" cond="$identifier == 'user_id'" name="user_id" id="uid" required placeholder="{$lang->user_id}" title="{$lang->user_id}" />
+					<input class="hi input input-default input-expand" type="email" cond="$identifier != 'user_id'" name="user_id" id="uid" required placeholder="{$lang->email_address}" title="{$lang->email_address}" />
+					<input class="hi input input-default input-expand" type="password" name="password" id="upw" required placeholder="{$lang->password}" title="{$lang->password}" />
+        </div>
+        
+				<div class="control-group">
+          <input class="hi input-checkbox" type="checkbox" name="keep_signed" id="keepid_opt" value="Y" />          
+					<label class="hi margin-bottom-small" for="keepid_opt">{$lang->keep_signed}</label>
+          
+					<div id="warning" class="hi notice-info">
+						<p>{$lang->about_keep_warning}</p>
+          </div>
+          
+					<input class="hi button button-primary button-expand" type="submit" value="{$lang->cmd_login}" />
+				</div>
+			</fieldset>
+    </form>
+    
+    <div class="hi flex">
+      <div class="hi flex flex-left">
+        <a class="hi text-muted text-small" href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a>
+      </div>
+      
+      <div class="hi flex flex-right">
+        <a class="hi text-muted text-small" href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a>
+      </div>
+    </div>
+	</section>
+
+<script>
+jQuery(function($){
+	var keep_msg = $('#warning');
+	keep_msg.hide();
+	$('#keepid_opt').change(function(){
+		if($(this).is(':checked')){
+			keep_msg.slideDown(200);
+		} else {
+			keep_msg.slideUp(200);
+		}
+	});
+});
+</script>
+
+<include target="./common_footer.html" />

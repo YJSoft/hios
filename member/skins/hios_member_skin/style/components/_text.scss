@@ -1,0 +1,202 @@
+
+/* ========================================================================
+ Component: Text
+ ========================================================================== */
+
+.hi.text-light {
+  font-weight: 300;
+}
+
+.hi.text-normal {
+  font-weight: normal;
+}
+
+.hi.text-bold {
+  font-weight: bold;
+}
+
+
+
+.hi.text-word-break-keep-all {
+  word-break: keep-all;
+}
+
+/* Text Align
+ ========================================================================== */
+
+.hi.text-left {
+  text-align: left;
+  &\@s {
+    @media (max-width: $breakpoint-xsmall-max) {
+      text-align: left !important;
+    }
+  }
+  &\@m {
+    @media (max-width: $breakpoint-small-max) {
+      text-align: left !important;
+    }
+  }
+}
+
+.hi.text-center {
+  text-align: center;
+  &\@s {
+    @media (max-width: $breakpoint-xsmall-max) {
+      text-align: center !important;
+    }
+  }
+  &\@m {
+    @media (max-width: $breakpoint-small-max) {
+      text-align: center !important;
+    }
+  }
+}
+
+
+
+.hi.text-right {
+  text-align: right;
+  &\@s {
+    @media (max-width: $breakpoint-small-max) {
+      text-align: right !important;
+    }
+  }
+  &\@m {
+    @media (max-width: $breakpoint-small-max) {
+      text-align: right !important;
+    }
+  }
+}
+
+/* font Size
+ ========================================================================== */
+
+.hi.text-xsmall {
+  font-size: $global-font-size-xsmall; // 12px
+}
+.hi.text-small {
+  font-size: $global-font-size-small; // 14px
+}
+
+.hi.text-medium {
+  font-size: $global-font-size-medium; // 14px
+}
+
+.hi.text-large {
+  font-size: $global-font-size-large; // 12px
+}
+
+
+//child
+.hi.text-xsmall-child * {
+  font-size: $global-font-size-xsmall; // 12px
+}
+
+.hi.text-small-child * {
+  font-size: $global-font-size-small; // 14px
+}
+
+
+/* Text Color
+ ========================================================================== */
+
+.hi.text-default {
+  color: $color-base-darker !important;
+}
+
+.hi.text-primary {
+  color: $color-primary !important;
+}
+
+.hi.text-success {
+  color: $color-success !important;
+}
+
+.hi.text-danger {
+  color: $color-danger !important;
+}
+
+.hi.text-muted {
+  color: $color-base !important;
+}
+
+.hi.text-muted-child * {
+  color: $color-base;
+}
+
+
+/* Heading
+ ========================================================================== */
+.hi.heading-primary {
+  font-size: 64px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+
+/* Divider with text
+ ========================================================================== */
+
+.hi.divider-with-text {
+  position: relative;
+  text-align: center;
+  color: $color-base;
+  font-size: $global-font-size-small;
+}
+
+.hi.divider-with-text:after,
+.hi.divider-with-text:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 1px;
+  background: $color-base-lighter;
+}
+
+.hi.divider-with-text:before {
+  left: -70px;
+}
+
+.hi.divider-with-text:after {
+  right: -70px;
+}
+
+
+/* Code
+ ========================================================================== */
+
+code {
+  padding: .2rem .4rem;
+  font-family: $global-font-family;
+  font-size: 90%;
+  color: $color-danger;
+  background-color: $color-base-lightest;
+  border-radius: .25rem;
+}
+
+.hi.text-highlighter {
+  background-color: $color-primary-lighter;
+}
+
+.hi.text-line {
+  text-decoration: line-through;
+}
+
+/* label
+ ========================================================================== */
+.hi.label-primary {
+  color: $color-primary;
+  font-size: $global-font-size-small;
+  background-color: $color-primary-lighter;
+  border-radius: $border-rounded-border-radius;
+  padding: 2px 7px;
+}
+
+.hi.label-danger {
+  color: $color-danger;
+  font-size: $global-font-size-xsmall;
+  background-color: $color-danger-lightest;
+  border-radius: $border-rounded-border-radius;
+  padding: 2px 7px;
+}

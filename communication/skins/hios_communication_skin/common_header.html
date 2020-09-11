@@ -1,0 +1,36 @@
+{Context::addMetaTag("viewport", "width=device-width, user-scalable=yes")}
+
+<load target="js/communication.js" />
+
+<block cond="$communication_config->colorset == 'blue'">
+  <load target="../../../member/skins/hios_member_skin/style/hios.css" />
+</block>
+
+<block cond="$communication_config->colorset == 'purple'">
+  <load target="../../../member/skins/hios_member_skin/style/hios-purple.css" />
+</block>
+
+<block cond="$communication_config->colorset == 'green'">
+  <load target="../../../member/skins/hios_member_skin/style/hios-green.css" />
+</block>
+
+<block cond="$communication_config->colorset == 'red'">
+  <load target="../../../member/skins/hios_member_skin/style/hios-red.css" />
+</block>
+
+<block cond="$communication_config->colorset == 'yellow'">
+  <load target="../../../member/skins/hios_member_skin/style/hios-yellow.css" />
+</block>
+  
+<section class="hi member">
+  <div class="hi background-color-content" cond="$communication_popup !== TRUE && $is_logged && $logged_info->menu_list && (!$member_srl || $member_srl == $logged_info->member_srl)">
+    <div class="hi tab-wrap overflow-hidden@m">
+      <ul class="hi tab">
+        <li loop="$logged_info->menu_list=>$key,$val" id="tab-active"|cond="$key==$act" class="active"|cond="$key==$act">
+          <a href="{getUrl('', 'act',$key, 'mid', $mid, 'vid', $vid)}">{Context::getLang($val)}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="hi container">

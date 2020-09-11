@@ -1,0 +1,127 @@
+<include target="./header_profile.html" />
+<include target="./common_header.html" />
+
+<load target="filter/delete_checked_message.xml" />
+<load target="filter/update_allow_message.xml" />
+
+<div class="hi section">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="hi margin-bottom-large" cond="$message">
+        <div class="hi flex margin-bottom-small">
+          <div class="hi flex flex-left">
+            <a class="cont_a member_{$message->member_srl} hi link-muted text-small" href="#popup_menu_area">{$message->nick_name}</a>
+          </div>
+
+          <div class="hi flex flex-right">
+            <span class="hi text-small text-muted">{zdate($message->regdate, "Y-m-d H:i")}</span>
+          </div>
+        </div>
+
+        <hr class="hi margin-bottom-medium">
+        
+        <div class="xe_content hi margin-bottom-medium">
+          {$message->content}
+        </div>
+        
+        <div class="hi margin-bottom-small">
+          <a class="hi button button-primary" cond="$message->message_type != 'S' && $message->member_srl != $logged_info->member_srl" href="#" onclick="doSendMessage('{$message->sender_srl}','{$message->message_srl}');">{$lang->cmd_reply_message}</a>
+          <a class="hi button button-default" cond="$message->message_type == 'R'" href="#" onclick="doStoreMessage('{$message->message_srl}');">{$lang->cmd_store}</a>
+          <a class="hi button button-default" href="#" onclick="doDeleteMessage('{$message->message_srl}');"><i class="ion-android-delete hi text-small margin-right-xsmall" aria-hidden="true"></i>{$lang->cmd_delete}</a>
+        </div>
+
+        <hr class="hi hr">
+      </div>
+
+      <!--<h3 loop="$lang->message_box => $key,$val" cond="$message_type == $key">{$val}</h3>-->
+    
+      <div class="" cond="$message_type == 'R'">
+        <form action="./" method="POST" class="pos-left">
+          <input type="hidden" name="module" value="communication" />
+          <input type="hidden" name="act" value="procCommunicationUpdateAllowMessage" />
+          <input type="hidden" name="message_type" value="{$message_type}" />
+          
+          <div class="control-group">
+            <select class="hi button button-default width-xsmall" name="allow_message">
+              <option loop="$lang->allow_message_type => $key,$val" value="{$key}" selected="selected"|cond="$logged_info->allow_message==$key">{$val}</option>
+            </select>
+            <input class="hi button button-primary" type="submit" value="{$lang->cmd_save}">
+          </div>
+        </form>
+      </div>
+    
+      <form action="./" method="post" id="message-list">
+        <input type="hidden" name="module" value="communication" />
+        <input type="hidden" name="act" value="procCommunicationDeleteMessages" />
+        <input type="hidden" name="message_type" value="{$message_type}" />
+
+        <table class="hi table table-divider margin-bottom-small">
+          <thead>
+            <tr>
+              <th style="width: 30px;">
+                <input id="check_all" class="hi input-checkbox" name="check_all" type="checkbox" onclick="XE.checkboxToggleAll('message-list-checkbox', { wrap: 'message-list' })"/>
+                <label for="check_all"></label>
+              </th>
+              <th class="title">{$lang->title}</th>
+              <th>
+                <!--@if($message_type == "S")-->
+                {$lang->receiver}
+                <!--@else-->
+                {$lang->sender}
+                <!--@end-->
+              </th>
+              <th>{$lang->regdate}</th>
+              <th>{$lang->readed_date}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr loop="$message_list => $no,$val">
+              <td>
+                <input class="hi input-checkbox" id="message-item-{$val->message_srl}" name="message-list-checkbox" type="checkbox" value="{$val->message_srl}" />
+                <label for="message-item-{$val->message_srl}"></label>
+              </td>
+              <td class="title">
+                <a class="hi text-muted" cond="$val->readed=='Y'" href="{getUrl('message_srl',$val->message_srl)}">{$val->title}</a>
+                <a class="hi text-default" cond="$val->readed!='Y'" href="{getUrl('message_srl',$val->message_srl)}">{$val->title}</a>
+              </td>
+              <td>
+                <a href="#popup_menu_area" class="hi text-default member_{$val->member_srl}">{$val->nick_name}</a>
+              </td>
+              <td> 
+                {zdate($val->regdate,"Y-m-d")}
+              </td>
+              <td><block cond="$val->readed=='Y'">{zdate($val->readed_date,"Y-m-d H:i")}</block>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="hi margin-top-xsmall">
+          <input class="hi button button-default" type="submit" value="선택한 항목 {$lang->cmd_delete}" />
+        </div>
+      </form>
+    
+      <div class="hi flex flex-middle">
+        <ul class="hi pagination">
+          <li><a href="{getUrl('page','','document_srl','')}" class="direction">&laquo; {$lang->first_page}</a></li>
+          <!--@while($page_no = $page_navigation->getNextPage())-->
+          <li class="active"|cond="$page == $page_no"><a href="{getUrl('page',$page_no,'document_srl','')}">{$page_no}</a></li>
+          <!--@end-->
+          <li><a href="{getUrl('page',$page_navigation->last_page,'document_srl','')}" class="direction">{$lang->last_page} &raquo;</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="col-sm-3">
+      <h3 loop="$lang->message_box => $key,$val" cond="$message_type == $key">{$val}</h3>
+      <hr class="hi hr">
+      <ul class="hi list-menu">
+        <li loop="$lang->message_box=>$key,$val" class="active"|cond="$message_type == $key">
+          <a href="{getUrl('message_type', $key, 'message_srl', '')}" >{$val}</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<include target="./common_footer.html" />

@@ -1,0 +1,63 @@
+{@ $target = $memberInfo['profile_image'] }
+
+<div class="hi background-color-content">
+  <div class="hi profile container">
+    <div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/member/skins/default/1'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+      <p>{$XE_VALIDATOR_MESSAGE}</p>
+    </div>
+  
+    <!--@if($is_logged && $logged_info->menu_list && (!$member_srl || $member_srl == $logged_info->member_srl))-->
+    <div class="row">
+      <div class="col-sm-auto hi inline-flex">
+        <!--@if($logged_info->profile_image->src)-->
+        <img class="hi profile-image" src="{$logged_info->profile_image->src}" alt="profile_image">
+        <!--@else-->
+        <img class="hi profile-image" src="./img/ic_profile_default.png" alt="profile_image">
+        <!--@end-->
+      </div>
+  
+      <div class="col-sm-7 hi inline-flex">
+        <div>
+          {@$_idx=0}
+          <!--@foreach($logged_info->group_list as $key_group=>$val_group)-->
+            <!--@if($val_group)-->
+          <span class="hi label-primary" cond="$_idx<1">{$val_group}</span>
+            <!--@end--> 
+            {@$_idx++}
+          <!--@end-->
+          
+          <h3 class="hi margin-remove">{$logged_info->nick_name}</h3>
+          <h5 class="hi text-small text-muted" cond="$grant->manager">{$logged_info->email_address}</h5>
+          <div class="hi text-small text-muted text-small-child margin-bottom-small">{$logged_info->signature}</div>
+    
+          <div cond="$is_logged && $logged_info->menu_list && (!$member_srl || $member_srl == $logged_info->member_srl)">
+            <a class="hi button button-primary button-rounded button-small margin-right-xsmall" href="{getUrl('act','dispMemberModifyInfo','member_srl','')}">{$lang->cmd_modify_member_info}</a>
+            <a class="hi button button-default button-rounded button-small" href="{getUrl('act', 'dispMemberModifyEmailAddress')}" cond="$member_config->identifier == 'email_address'">{$lang->cmd_modify_member_email_address}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!--@else-->
+    
+    <div class="row">
+      <div class="col-sm-auto hi inline-flex flex-middle">
+        <!--@if($target->src)-->
+        <img class="hi border-circle margin-bottom-small" src="{$target->src}" alt="profile_image" width="150" height="150">
+        <!--@else-->
+        <img class="hi border-circle margin-bottom-small" src="./img/ic_profile_default.png" alt="profile_image" width="150" height="150">
+        <!--@end-->
+      </div>
+  
+      <div class="col-sm-7 hi inline-flex flex-middle@s">
+        <div class="hi text-center@s">
+          <span class="hi label-primary">{implode(', ', $memberInfo['group_list'])}</span>
+          <h3>{$memberInfo[nick_name]}</h3>
+          <h5 class="hi text-small text-muted" cond="$grant->manager">{$memberInfo[email_address]}</h5>
+          <div class="hi text-small text-small-child margin-bottom-small">{$memberInfo[signature]}</div>
+        </div>
+      </div>
+    </div>
+  <!--@end-->
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<include target="./header_profile.html" />
+
+<include target="./common_header.html" />
+
+<section class="hi section">
+  <h3>{$member_title = $lang->cmd_view_own_document}</h3>
+  
+	<table class="hi table table-divider margin-bottom-small">
+    <caption>Total: {number_format($total_count)}, Page {number_format($page)}/{number_format($total_page)}</caption>
+    <thead>
+        <th scope="col">{$lang->no}</th>
+        <th scope="col" class="title">{$lang->title}</th>
+        <th scope="col">{$lang->date}</th>
+        <th scope="col">{$lang->readed_count}</th>
+        <th scope="col">{$lang->voted_count}</th>
+    </thead>
+		<tbody>
+      <tr loop="$document_list => $no,$oDocument">
+        <td>{$no}</td>
+        <td class="title">
+          <a class="hi text-default" href="{getUrl('','document_srl',$oDocument->document_srl)}" target="_blank">{$oDocument->getTitleText()}</a>
+          <!--@if($oDocument->getCommentCount())-->
+            [{$oDocument->getCommentCount()}]
+          <!--@end-->
+    
+          <!--@if($oDocument->getTrackbackCount())-->
+            [{$oDocument->getTrackbackCount()}]
+          <!--@end-->
+        </td>
+        <td>{$oDocument->getRegdate("Y-m-d")}</td>
+        <td>{$oDocument->get('readed_count')}</td>
+        <td>{$oDocument->get('voted_count')}</td>
+      </tr>
+		</tbody>
+  </table>
+  
+  <div class="hi flex flex-center">
+    <ul class="hi pagination">
+      <li><a href="{getUrl('page','','module_srl','')}" class="direction">&lsaquo; {$lang->first_page}</a></li> 
+      <!--@while($page_no = $page_navigation->getNextPage())-->
+      <li class="active"|cond="$page == $page_no"><a href="{getUrl('page',$page_no,'module_srl','')}">{$page_no}</a></li>
+      <!--@end-->
+      <li><a href="{getUrl('page',$page_navigation->last_page,'module_srl','')}" class="direction">{$lang->last_page} &rsaquo;</a></li>
+    </ul>
+  </div>
+</section>
+
+<include target="./common_footer.html" />

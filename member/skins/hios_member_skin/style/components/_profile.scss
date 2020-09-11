@@ -1,0 +1,21 @@
+/* ========================================================================
+ Component: Profile
+=========================================================================== */
+
+.hi.profile {
+  padding-top: 40px;
+  margin-bottom: $padding-small;
+}
+
+.hi.profile-image {
+  width: 150px;
+  height: 150px;
+  
+  border-radius: 500px;
+  margin-bottom: $padding-small;
+
+  @media (max-width: $breakpoint-small-max) {
+    width: 90px;
+    height: 90px;
+  }
+}

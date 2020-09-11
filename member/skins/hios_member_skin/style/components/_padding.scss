@@ -1,0 +1,218 @@
+
+/* ========================================================================
+ Component: Padding
+ ========================================================================== */
+
+//xsmall
+.hi.padding-xsmall {
+  padding: $padding-xsmall;
+}
+
+.hi.padding-top-xsmall {
+  padding-top: $padding-xsmall;
+}
+
+.hi.padding-bottom-xsmall {
+  padding-bottom: $padding-xsmall;
+}
+
+
+//small
+.hi.padding-small {
+  padding: $padding-small;
+}
+
+.hi.padding-top-small {
+  padding-top: $padding-small;
+}
+
+.hi.padding-bottom-small {
+  padding-bottom: $padding-small;
+}
+
+.hi.padding-left-small {
+  padding-left: $padding-small;
+}
+
+.hi.padding-right-small {
+  padding-right: $padding-small;
+}
+
+
+//default
+.hi.padding {
+  padding: $padding-default;
+}
+
+.hi.padding-top-default {
+  padding-top: $padding-default;
+}
+
+.hi.padding-bottom-default {
+  padding-bottom: $padding-default;
+}
+
+.hi.padding-left-default {
+  padding-left: $padding-default;
+}
+
+.hi.padding-right-default {
+  padding-right: $padding-default;
+}
+
+
+//medium
+.hi.padding-medium {
+  padding: $padding-medium;
+}
+
+.hi.padding-top-medium {
+  padding-top: $padding-medium;
+}
+
+.hi.padding-bottom-medium {
+  padding-bottom: $padding-medium;
+}
+
+.hi.padding-left-medium {
+  padding-left: $padding-medium;
+}
+
+.hi.padding-right-medium {
+  padding-right: $padding-medium;
+}
+
+
+//large
+.hi.padding-large {
+  padding: $padding-large;
+}
+
+.hi.padding-top-large {
+  padding-top: $padding-large;
+}
+
+.hi.padding-bottom-large {
+  padding-bottom: $padding-large;
+}
+
+
+//xlarge
+.hi.padding-xlarge {
+  padding: $padding-xlarge;
+}
+
+.hi.padding-top-xlarge {
+  padding-top: $padding-xlarge;
+}
+
+.hi.padding-bottom-xlarge {
+  padding-bottom: $padding-xlarge;
+}
+
+
+// horizontal small
+.hi.padding-horizontal-small {
+  padding-left: $padding-small;
+  padding-right: $padding-small;
+}
+
+.hi.padding-horizontal-small\@s {
+  @media (max-width: $breakpoint-xsmall-max) {
+    padding-left: $padding-small;
+    padding-right: $padding-small;
+  }
+}
+
+// vertical small
+.hi.padding-vertical-small {
+  padding-top: $padding-small;
+  padding-bottom: $padding-small;
+}
+
+.hi.padding-vertical-small\@s {
+  @media (max-width: $breakpoint-xsmall-max) {
+    padding-top: $padding-small;
+    padding-bottom: $padding-small;
+  }
+}
+
+.hi.padding-vertical-medium {
+  padding-top: $padding-medium;
+  padding-bottom: $padding-medium;
+}
+
+.hi.padding-vertical-large {
+  padding-top: $padding-large;
+  padding-bottom: $padding-large;
+}
+
+
+/* Padding remove
+ ========================================================================== */
+
+.hi.padding-remove {
+  padding: 0 !important;
+}
+
+.hi.padding-top-remove {
+  padding-top: 0 !important;
+}
+
+.hi.padding-left-remove {
+  padding-left: 0 !important;
+}
+
+.hi.padding-right-remove {
+  padding-right: 0 !important;
+}
+
+.hi.padding-bottom-remove {
+  padding-bottom: 0 !important;
+}
+
+//Small
+@media (max-width: $breakpoint-xsmall-max) {
+  .hi.padding-remove\@s {
+    padding: 0 !important;
+  }
+
+  .hi.padding-top-remove\@s {
+    padding-top: 0 !important;
+  }
+  
+  .hi.padding-left-remove\@s {
+    padding-left: 0 !important;
+  }
+  
+  .hi.padding-right-remove\@s {
+    padding-right: 0 !important;
+  }
+  
+  .hi.padding-bottom-remove\@s {
+    padding-bottom: 0 !important;
+  }
+}
+
+//Medium
+@media (max-width: $breakpoint-small-max) {
+  .hi.padding-remove\@m {
+    padding: 0 !important;
+  }
+
+  .hi.padding-top-remove\@m {
+    padding-top: 0 !important;
+  }
+  
+  .hi.padding-left-remove\@m {
+    padding-left: 0 !important;
+  }
+  
+  .hi.padding-right-remove\@m {
+    padding-right: 0 !important;
+  }
+  
+  .hi.padding-bottom-remove\@m {
+    padding-bottom: 0 !important;
+  }
+}

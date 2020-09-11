@@ -1,0 +1,24 @@
+{@ $primaryColor = '#5c7cfa' }
+{@ $fontFamily = 'Malgun Gothic, Nanum Gothic, Arial, Helvetica, sans-serif' }
+{@ $fontSize = '14px' }
+{@ $buttonPadding = '12px 20px' }
+
+<div style="font-family: {$fontFamily}; font-size: {$fontSize}; color: #868e96; background-color: #f8f9fa; overflow: hidden;">
+  <div style="max-width: 550px; margin: 100px auto; background-color: white; border-radius: 3px; padding: 50px 60px; box-shadow: 0 0 3px #e9ecef">
+    <h1 style="font-family: {$fontFamily}; font-size: 24px; color: #495057;">임시 비밀번호 안내</h1>
+    <p style="margin-bottom: 2em">{$lang->msg_find_account_info}</p>
+
+
+    <ul style="list-style-type: none; margin: 3em 0; padding: 0;">
+      <li><strong>{$lang->site}:</strong> <a href="{getUrl()}" target="_blank">{getUrl()}</a></li>
+      <li loop="$memberInfo=>$name,$value" cond="!is_object($value)&&!is_array($value)"><strong>{$name}:</strong> {$value}</li>
+    </ul>
+
+    <strong>임시 비밀번호</strong>
+    <h2 style="color: {$primaryColor}; margin: 0.1em 0 2em">{$auth_args->new_password}</h2>
+
+
+    <p style="margin-bottom: 10px">{$lang->msg_find_account_comment}</p>
+    <a href="{$find_url}" style="display: inline-block; font-family: {$fontFamily}; font-size: {$fontSize}; font-weight: bold; color: white; border-radius: 3px; padding: {$buttonPadding}; background-color: {$primaryColor}; text-decoration: none;">임시 비밀번호로 로그인</a>
+  </div>
+</div>

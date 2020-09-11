@@ -1,0 +1,135 @@
+@charset "utf-8";
+
+/* ========================================================================
+ Component: Base
+ ========================================================================== */
+
+.hi * {
+  font-family: $global-font-family;
+	font-size: $global-font-size;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+
+.hi script, .hi style {
+	display: none !important;
+}
+
+.hi h1,
+.hi h2,
+.hi h3,
+.hi h4,
+.hi h5,
+.hi h6, {
+  color: $color-base-darker;
+	font-family: $global-font-family;
+  font-weight: normal;
+  margin: 0 0 $padding-small 0;
+}
+
+.hi h3 {
+	font-size: $global-font-size-large;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+.hi * + .hi.hr {
+  margin-top: 20px;
+}
+.hi hr, .hi.hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  text-align: inherit;
+  margin: 0 0 20px 0;
+  border: 0;
+  border-top: 1px solid $color-base-lighter;
+}
+
+/* Links
+ ========================================================================== */
+
+.hi a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+  &:active, &:hover {
+     outline: none;
+  }
+}
+
+.hi a,
+.hi.link {
+  color: $color-primary;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+}
+
+.hi.link-muted {
+  text-decoration: none;
+  color: $color-base;
+  &:hover, &:hover * {
+    color: $color-base-dark;
+  }
+  &:active, &:active * {
+    color: $color-base-darker;
+  }
+}
+
+.hi.link-reset, .hi.link-reset * {
+  text-decoration: none;
+}
+
+
+/* etc
+ ========================================================================== */
+.hi #profile_imagetag img {
+  border-radius: 100%;
+}
+
+.hi.notice-info {
+  padding: $padding-small;
+  margin-bottom: $padding-small;
+  color: $color-success-dark;
+  font-size: $global-font-size-small;
+  background-color: $color-success-lightest;
+
+  border: 1px solid $color-success-lighter;
+  border-radius: $border-rounded-border-radius;
+  p {
+    margin: 0;
+    font-size: $global-font-size-small;
+  }
+  
+  &.error {
+    color: $color-danger-dark;
+    background-color: $color-danger-lightest;
+    border: 1px solid $color-danger-lighter;
+  }
+}
+
+.hi .help-inline {
+  padding: $padding-small;
+  margin-bottom: $padding-small;
+  color: $color-danger-dark;
+  font-size: $global-font-size-small;
+  background-color: $color-danger-lightest;
+
+  border: 1px solid $color-danger-lighter;
+  border-radius: $border-rounded-border-radius;
+  p {
+    margin: 0;
+    font-size: $global-font-size-small;
+  }
+}
+
+.hi .help-block {
+  color: $color-base;
+  font-size: $global-font-size-small;
+}

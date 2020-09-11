@@ -1,0 +1,112 @@
+
+/* ========================================================================
+ Component: Utilities
+ ========================================================================== */
+
+/* Margin-size
+ ========================================================================== */
+
+//xsmall
+.hi.margin-top-xsmall {
+  margin-top: 10px;
+}
+
+.hi.margin-left-xsmall {
+  margin-left: 10px;
+}
+
+.hi.margin-right-xsmall {
+  margin-right: 10px;
+}
+
+.hi.margin-bottom-xsmall {
+  margin-bottom: 10px;
+}
+
+//small
+.hi.margin-top-small {
+  margin-top: 20px;
+}
+
+.hi.margin-left-small {
+  margin-left: 20px;
+}
+
+.hi.margin-right-small {
+  margin-right: 20px;
+}
+
+.hi.margin-bottom-small {
+  margin-bottom: 20px;
+}
+
+//Medium
+.hi.margin-top-medium {
+  margin-top: 40px;
+}
+
+.hi.margin-left-medium {
+  margin-left: 40px;
+}
+
+.hi.margin-right-medium {
+  margin-right: 40px;
+}
+
+.hi.margin-bottom-medium {
+  margin-bottom: 40px;
+}
+
+//Large
+.hi.margin-top-large {
+  margin-top: 60px;
+}
+
+.hi.margin-left-large {
+  margin-left: 60px;
+}
+
+.hi.margin-right-large {
+  margin-right: 60px;
+}
+
+.hi.margin-bottom-large {
+  margin-bottom: 60px;
+}
+
+
+/* Margin remove
+ ========================================================================== */
+
+.hi.margin-remove {
+  margin: 0;
+}
+
+.hi.margin-top-remove {
+  margin-top: 0;
+}
+
+.hi.margin-left-remove {
+  margin-left: 0;
+}
+
+.hi.margin-right-remove {
+  margin-right: 0;
+}
+
+.hi.margin-bottom-remove {
+  margin-bottom: 0;
+}
+
+/* Margin auto
+ ========================================================================== */
+
+.hi.margin-auto-vertical {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.hi.margin-auto-horizontal {
+  margin-left: auto;
+  margin-right: auto;
+}

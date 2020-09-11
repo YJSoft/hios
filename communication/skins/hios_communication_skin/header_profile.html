@@ -1,0 +1,39 @@
+{@$target = $memberInfo['profile_image']}
+<div class="hi background-color-content">
+  <div class="hi profile container">
+    <div cond="$XE_VALIDATOR_MESSAGE && $XE_VALIDATOR_ID == 'modules/communication/skins/hios_communication_skin/1'" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+      <p>{$XE_VALIDATOR_MESSAGE}</p>
+    </div>
+  
+    <div class="row">
+      <div class="col-sm-auto hi inline-flex">
+        <!--@if($logged_info->profile_image->src)-->
+        <img class="hi profile-image" src="{$logged_info->profile_image->src}" alt="profile_image" width="150" height="150">
+        <!--@else-->
+        <img class="hi profile-image" src="./img/ic_profile_default.png" alt="profile_image" width="150" height="150">
+        <!--@end-->
+      </div>
+  
+      <div class="col-sm-7 hi inline-flex">
+        <div>
+          {@$_idx=0}
+          <!--@foreach($logged_info->group_list as $key_group=>$val_group)-->
+            <!--@if($val_group)-->
+          <span class="hi label-primary" cond="$_idx<1">{$val_group}</span>
+            <!--@end--> 
+            {@$_idx++} 
+          <!--@end-->
+          <h3>{$logged_info->nick_name}</h3>
+          <h5 class="hi text-small text-muted" cond="$grant->manager">{$logged_info->email_address}</h5>
+          <div class="hi text-small text-small-child margin-bottom-small">{$logged_info->signature}</div>
+    
+          <div>
+            <a class="hi button button-primary button-rounded margin-right-xsmall" href="{getUrl('act','dispMemberModifyInfo','member_srl','')}">{$lang->cmd_modify_member_info}</a>
+            <a class="hi button button-default button-rounded margin-right-xsmall" href="{getUrl('act', 'dispMemberModifyEmailAddress')}">{$lang->cmd_modify_member_email_address}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>

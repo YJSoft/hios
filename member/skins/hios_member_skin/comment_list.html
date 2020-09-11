@@ -1,0 +1,36 @@
+<include target="./header_profile.html" />
+
+<include target="./common_header.html" />
+
+<section class="hi section">
+  <h3>{$member_title = lang('member.cmd_view_own_comment')}</h3>
+  <p class="hi text-small text-muted">{lang('common.total')}: {number_format($total_count)}</p>
+  
+	<table class="hi table table-divider margin-bottom-small">
+    <thead>
+      <tr>
+        <th>내용</th>
+        <th>날짜</th>
+      </tr>
+    </thead>
+
+		<tbody>
+			<tr loop="$comment_list => $key, $item">
+        <td><a class="hi link-muted" href="{getUrl('','document_srl',$item->document_srl)}#comment_{$item->comment_srl}" class="cont_a no_delete" target="_blank">{$item->getSummary() ?: lang('comment.msg_no_text_comment')}</a></td>      
+        <td>{$item->getRegdate("Y-m-d")}</td>
+      </tr>
+		</tbody>
+  </table>
+  
+  <div class="hi flex flex-middle">
+    <ul class="hi pagination">
+      <li><a href="{getUrl('page','','module_srl','')}" class="direction">&lsaquo; {lang('common.first_page')}</a></li> 
+      <!--@while($page_no = $page_navigation->getNextPage())-->
+      <li class="active"|cond="$page == $page_no"><a href="{getUrl('page',$page_no,'module_srl','')}">{$page_no}</a></li>
+      <!--@end-->
+      <li><a href="{getUrl('page',$page_navigation->last_page,'module_srl','')}" class="direction">{lang('common.last_page')} &rsaquo;</a></li>
+    </ul>
+  </div>
+</section>
+
+<include target="./common_footer.html" />

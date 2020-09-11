@@ -1,0 +1,128 @@
+
+/* ========================================================================
+ Component: Inverse
+ ========================================================================== */
+
+.hi.inverse,
+.hi.inverse > * {
+  color: $color-content;
+  & .hi.text-default {
+    color: $color-content !important;
+  }
+}
+
+.hi.inverse hr {
+  border-top-color: $inverse-opacity-dark;
+}
+
+.hi.inverse > .hi.button-default {
+  background-color: transparent;
+  color: $color-content;
+  border: 2px solid $color-content;
+  box-shadow: none;
+  &:hover {
+    background-color: $color-content;
+    color: $color-base-dark;
+    border-width: 2px;
+    border-color: $color-content;
+    box-shadow: 0 3px 10px rgba($color-base-darkest, 0.2);
+  }
+  &:active {
+    background-color: $color-base-lightest;
+    color: $color-base-darker;
+    border-width: 2px;
+    border-color: $color-base-lightest;
+    box-shadow: 0 1px 4px rgba($color-base-darkest, 0.1);
+  }
+}
+
+.hi.inverse > .hi.button-primary {
+  background-color: $color-content;
+  color: $color-base-darker;
+  border-color: $color-content;
+  box-shadow: none;
+  &:hover {
+    background-color: $color-base-lightest;
+    color: $color-base-darker;
+    border-color: $color-base-lightest;
+    box-shadow: 0 3px 10px rgba($color-base-darkest, 0.2);
+  }
+  &:active {
+    background-color: $color-base-lighter;
+    color: $color-base-darker;
+    border-color: $color-base-lighter;
+    box-shadow: 0 1px 4px rgba($color-base-darkest, 0.1);
+  }
+}
+
+.hi.inverse .hi.text-muted {
+  color: rgba($color-content, 0.6) !important;
+}
+
+
+.hi.inverse.navbar {
+  & .hi.logo-item {
+    background-image: url(../img/logo_light.svg);
+  }
+  & .hi.nav-drawer-toggle > i {
+    color: $color-content;
+  }
+  & .hi.search-drawer-toggle > i {
+    color: $color-content;
+  }
+  & .hi.navbar-search {
+    color: $color-content;
+    background-color: $inverse-opacity-light;
+    &:hover {
+      color: $color-content;
+      background-color: $inverse-opacity-lighter;
+    }
+    & > input[type=text] {
+      color: transparent;
+      &:focus {
+        color: $color-content;
+      }
+    }
+    & > input[type=submit] {
+      color: $inverse-opacity-lighter;
+      &:hover {
+        color: $color-content;
+      }
+    }
+  }
+  & .hi.navbar-nav > li {
+    & > a {
+      color: $inverse-opacity-lightest;
+      &:hover {
+        color: $inverse-opacity-great-lightest;
+      }
+    }
+    &.active > a {
+      color: $color-content;
+      border-bottom-color: $color-content;
+    }
+    &.active.hi.dark > a {
+      color: $color-primary;
+      border-bottom-color: $color-primary;
+    }
+    & > ul.hi.popover {
+      margin-top: -4px;
+    }
+  }
+}
+
+.hi.inverse.dark, .hi.inverse .hi.dark,
+.hi.inverse.dark > *, .hi.inverse .hi.dark > * {
+  color: $color-base-darker;
+  & > .hi.text-muted {
+    color: $color-base !important;
+  }
+}
+
+.hi.inverse hr.hi.dark {
+  border-top-color: $color-base-lighter;
+}
+
+.hi.navbar.background-color-base-darker {
+  box-shadow: 0 0px 2px 0 rgba(0, 0, 0, 0.5);
+}
